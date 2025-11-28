@@ -1,0 +1,245 @@
+:root{
+  --bg:#090a15;
+  --card:#14161e;
+  --muted:#d9d9d9;
+  --accent:#8f3de0;
+  --accent2:#933bc3;
+  --blood:#5e020b;
+  --radius:14px; --max:1100px;
+}
+
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'neue-machina', sans-serif;
+  color:#e9d9ff;
+  background:radial-gradient(circle at center,#8f3de0 0%,#231b31 45%,#090a15 100%);
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* SCANLINES */
+body::after{
+  content:"";
+  position:fixed;
+  top:0;left:0;width:100%;height:100%;
+  pointer-events:none;
+  background:repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.03) 0px,
+    rgba(255,255,255,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+  mix-blend-mode:overlay;
+  opacity:0.25;
+  z-index:9999;
+}
+
+/* STATIC NOISE */
+@keyframes noise {
+  0%{background-position:0 0}
+  100%{background-position:100% 100%}
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  background:url('/mnt/data/Captura de tela 2025-11-24 165739.png');
+  opacity:0.05;
+  mix-blend-mode:soft-light;
+  animation:noise 0.8s steps(4) infinite;
+  pointer-events:none;
+}
+
+/* GLITCH TEXT */
+.glitch{
+  position:relative;
+  display:inline-block;
+  color:var(--accent);
+  text-shadow:0 0 10px var(--accent2);
+}
+.glitch::before,
+.glitch::after{
+  content:attr(data-text);
+  position:absolute;left:0;top:0;
+  opacity:0.7;
+}
+.glitch::before{
+  color:#ff00ff;
+  transform:translate(2px, -2px);
+  clip-path:inset(0 0 40% 0);
+}
+.glitch::after{
+  color:#00ffff;
+  transform:translate(-2px, 2px);
+  clip-path:inset(60% 0 0 0);
+}
+
+.wrap{max-width:var(--max);margin:40px auto;padding:28px}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo {
+  width: 58px;
+  height: 58px;
+  border-radius: 12px;
+  
+  /* sua logo real */
+  background: url('/mnt/data/unnamed.jpg') center/cover no-repeat;
+
+  /* glow neon roxo */
+  box-shadow:
+    0 0 20px rgba(180, 70, 255, .7),
+    0 0 40px rgba(110, 40, 200, .4);
+
+  animation: logoFlicker 3.5s infinite steps(1);
+}
+
+/* animação glitch/piscando */
+@keyframes logoFlicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    filter: brightness(1);
+  }
+  19%, 23%, 26%, 54% {
+    filter: brightness(2.3) contrast(1.2);
+  }
+  20%, 55% {
+    filter: brightness(0.6);
+  }
+}
+h1{font-size:22px;margin:0;color:var(--accent)}
+nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600;transition:.2s}
+nav a:hover{color:var(--accent2)}
+
+.hero{display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:28px}
+.card{
+  background:rgba(20,22,30,0.55);
+  padding:22px;border-radius:var(--radius);
+  backdrop-filter: blur(8px);
+  box-shadow:0 0 25px rgba(147,59,195,0.25);
+  border:1px solid rgba(147,59,195,0.25);
+  animation:flicker 4s infinite;
+}
+@keyframes flicker{0%,100%{opacity:1}50%{opacity:.96}}
+
+.intro h2{margin:0 0 12px 0;font-size:28px;color:var(--accent2);text-shadow:0 0 10px var(--accent)}
+.intro p{color:var(--muted);line-height:1.5}
+.cta{margin-top:18px}
+.btn{
+  display:inline-block;padding:10px 16px;border-radius:10px;
+  background:linear-gradient(90deg,var(--accent2),var(--accent));
+  color:#090a15;font-weight:700;border:none;cursor:pointer;
+  box-shadow:0 0 20px rgba(147,59,195,0.3);
+  transition:.2s;
+}
+.btn:hover{box-shadow:0 0 28px rgba(147,59,195,0.6)}
+
+.features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
+.feature{padding:12px;background:rgba(255,255,255,0.03);border-radius:10px;border:1px solid rgba(147,59,195,0.15)}
+.panel{display:flex;flex-direction:column;gap:12px}
+.device-visual{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.chip{
+  width:220px;height:220px;border-radius:14px;
+  background:linear-gradient(180deg,#231b31,#090a15);
+  display:grid;place-items:center;color:var(--accent);
+  font-weight:700;letter-spacing:1px;
+  box-shadow:0 0 25px rgba(147,59,195,0.4);
+  animation:glitchchip 1.3s infinite;
+}
+@keyframes glitchchip{
+  0%{transform:translate(0,0)}
+  20%{transform:translate(2px,-2px)}
+  40%{transform:translate(-2px,1px)}
+  60%{transform:translate(1px,-1px)}
+  80%{transform:translate(-1px,2px)}
+  100%{transform:translate(0,0)}
+}
+
+.small{font-size:13px;color:var(--muted)}
+section{margin-top:28px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.report{
+  padding:14px;background:rgba(20,22,30,0.55);
+  border-radius:12px;border:1px solid rgba(147,59,195,0.25);
+  box-shadow:0 0 15px rgba(147,59,195,0.25);
+}
+.report pre{white-space:pre-wrap;color:#e9d9ff;font-size:14px;text-shadow:0 0 5px #8f3de0}
+footer{margin-top:28px;padding:18px;border-radius:10px;background:transparent;display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
+.muted{color:var(--muted)}
+
+/* ACCORDION */
+.accordion{border-radius:10px;overflow:hidden}
+.acc-head{
+  display:flex;justify-content:space-between;align-items:center;padding:10px;
+  background:rgba(147,59,195,0.1);
+  cursor:pointer;
+  backdrop-filter:blur(4px);
+  border-bottom:1px solid rgba(147,59,195,0.25);
+  transition:.2s;
+}
+.acc-head:hover{background:rgba(147,59,195,0.25)}
+
+.acc-body{
+  padding:12px;background:rgba(20,22,30,0.4);
+  display:none;
+  border-left:2px solid var(--accent2);
+  animation:fadeDown .3s ease;
+}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+
+/* responsive */
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr}
+  .grid-3{grid-template-columns:1fr}
+  .features{grid-template-columns:1fr}
+}
+
+.pill{display:inline-block;padding:6px 10px;background:rgba(255,255,255,0.03);border-radius:999px;font-weight:600;color:var(--muted)}
+.toggle{background:transparent;border:1px solid rgba(147,59,195,0.3);padding:8px 10px;border-radius:10px;color:var(--muted);cursor:pointer}
+.disclaimer{font-size:13px;color:#ffbecf;background:rgba(94,2,11,0.25);padding:10px;border-radius:8px;border:1px solid rgba(94,2,11,0.25)}
+.testimonial{font-style:italic;color:var(--muted)}
+
+/* Distorted button transitions */
+.btn{
+  transition:filter .2s, transform .2s;
+}
+.btn:hover{
+  filter:brightness(1.4) contrast(1.3) saturate(1.4);
+  transform:scale(1.03) skew(-1deg);
+}
+
+/* Terminal corrompido */
+body::after{
+  content:"";
+  position:fixed; inset:0;
+  pointer-events:none;
+  background:url('https://i.imgur.com/o7R8FQy.png');
+  opacity:.07;
+  mix-blend-mode:overlay;
+  animation:scan 8s linear infinite;
+}
+
+@keyframes flicker{
+  0%,19%,21%,23%,25%,54%,56%,100%{opacity:1}
+  20%,24%,55%{opacity:.4}
+}
+@keyframes scan{
+  0%{transform:translateY(-20%)}
+  100%{transform:translateY(20%)}
+}
+/* --- Efeito de flash invertido (piscar com cores invertidas) --- */
+.invert-flash {
+  animation: invertFlash 2s steps(1, end) infinite;
+}
+
+@keyframes invertFlash {
+  0% {
+    filter: invert(0);
+  }
+  50% {
+    filter: invert(1);
+  }
+  100% {
+    filter: invert(0);
+  }
+}

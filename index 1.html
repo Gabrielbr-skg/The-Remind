@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Remind — Soluções de Memória </title>
+  <meta name="description" content="Remind — tecnologia de implantes de memória. Site fictício criado para projeto ARG." />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo"> <img style="border-radius: 10px;" src="unnamed.jpg" alt="" class="invert-flash" width=60px> 
+        </div>
+        <div>
+          <h1>Remind</h1>
+          <div class="small">Tecnologia de memória — <span class="pill"></span></div>
+        </div>
+      </div>
+      <nav aria-label="Navegação principal">
+        <a href="#sobre">Sobre</a>
+        <a href="https://www.youtube.com/watch?v=yGpFRupz6oo">Tecnologia</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
+</style>
+    <main>
+      <div class="hero">
+        <section class="card intro">
+          <h2>Remind — Redefina como você lembra</h2>
+          <p>Na Remind desenvolvemos um <strong>Chip</strong>, um implante neural experimental projetado para modular memórias traumáticas e reduzir cargas emocionais.</p>
+          <div class="cta">
+            <button class="btn" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Solicite uma demonstração</button>
+          </div>
+
+          <div class="features" aria-hidden="false">
+            <div class="feature">
+              <strong>Remoção direcionada</strong>
+              <div class="small">Alvo memórias associadas a eventos específicos.</div>
+            </div>
+            <div class="feature">
+              <strong>Monitoramento clínico</strong>
+              <div class="small">Acompanhamento com equipe multidisciplinar.</div>
+            </div>
+            <div class="feature">
+              <strong>Recuperação reversível</strong>
+              <div class="small">Protocolos experimentais para restauração parcial.</div>
+            </div>
+            <div class="feature">
+              <strong>Segurança de dados</strong>
+              <div class="small">Criptografia e isolamento para integridade das informações.</div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="card panel" aria-label="Visão do dispositivo">
+          <div class="device-visual">
+            <div class="chip"><img style="border-radius:14px" src="content.webp" alt="" width="220px"; height="220px";></div>
+            <div class="small">Implante experimental — tamanho aproximado: 12×8 mm</div>
+            <div style="width:100%;display:flex;gap:5px;justify-content:center">
+              <div class="small">Compatível com protocolos de pesquisa</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <section id="sobre" class="card">
+        <h3>Sobre a Remind</h3>
+        <p class="muted">Fundada por pesquisadores fictícios, a Remind explora interfaces neurais para aliviar sofrimento relacionado a memórias traumáticas. Como parte do ARG, nossos curtas mostram casos em que intervenções levam a consequências imprevistas — um lembrete de que brincar com a mente humana tem riscos.</p>
+      </section>
+
+      <section id="tecnologia" class="card">
+        <h3>Tecnologia</h3>
+        <p class="small">O RemindChip combina estimulação neural, algoritmos de correlação de memória e um módulo de armazenamento seguro. Todo o jargão abaixo é fictício — escrito para dar verossimilhança ao ARG.</p>
+        <div class="grid-3" style="margin-top:12px">
+          <div class="report">
+            <strong>Arquitetura</strong>
+            <pre>• Módulo A — microestimulação
+• Módulo B — indexador de memórias
+• Módulo C — isolamento criptográfico</pre>
+          </div>
+          <div class="report">
+            <strong>Protocolos</strong>
+            <pre>• Calibração inicial (4h)
+• Sessões de intervenção (1-3 semanas)
+• Follow-up psicológico contínuo</pre>
+          </div>
+          <div class="report">
+            <strong>Limitações</strong>
+            <pre>• Efeitos variáveis entre indivíduos
+• Risco de dissociação e perda de contexto
+• Tecnologia em estágio experimental</pre>
+          </div>
+        </div>
+      </section>
+        <p style="margin-top:12px" class="testimonial">"A narrativa dos curtas explora até onde vale a pena alterar lembranças — e os vazios que isso deixa."</p>
+      </section>
+
+      <section id="contato" class="card">
+        <h3>Contato</h3>
+        <p class="small">Para fins do projeto, este formulário não envia dados a lugar nenhum. Use-o apenas para prototipagem.</p>
+        <form onsubmit="fakeSubmit(event)" style="display:flex;flex-direction:column;gap:10px;margin-top:12px">
+          <input name="nome" placeholder="Seu nome" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" />
+          <input name="email" type="email" placeholder="email@exemplo.com" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" />
+          <textarea name="mensagem" placeholder="Mensagem (ex: solicito demo para o curta X)" rows="4" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></textarea>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button class="btn" type="submit">Enviar (Protótipo)</button>
+            <div class="small">Ou envie: contato[at]remind.ficcao</div>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div>© Remind (Ficção) — Projeto ARG • Produção estudantil</div>
+      <div class="muted">Política de privacidade fictícia • Termos fictícios</div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
